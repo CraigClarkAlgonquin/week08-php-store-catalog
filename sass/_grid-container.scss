@@ -1,73 +1,68 @@
-.grid_container {
-    margin: 1rem;
-    ul {
-	  margin: 0;
+.grid-container {
+  margin: 1rem;
+
+  ul {
+    margin: 0;
     padding: 0;
     list-style: none;
+
     li {
-	    margin: 0 0 1rem 0;
+      margin: 0 0 1rem 0;
     }
-    
+
     img {
-	        width: 100%;
-    height: auto;
-    display: block;
+      width: 100%;
+      height: auto;
+      display: block;
     }
-
-    }
-
+  }
 }
-
-
 
 /* -- First Break-Point at 35rem - TABLET VIEWPORT-- */
-@media screen and (min-width: 35rem) and (max-width: 80rem){
-    .grid_container {
-	    
-	    ul {
-		    &:after {
-			   content: "";
+@media screen and (min-width: 35rem) and (max-width: 80rem) {
+  .grid-container {
+    ul {
+      &:after {
+        content: "";
         display: block;
-        clear: left; 
-		    }
-		    
-		    li {
-			    width: calc(33.33% - 1rem + 0.33rem);
+        clear: left;
+      }
+
+      li {
+        width: calc(33.33% - 1rem + 0.33rem);
         float: left;
         margin: 0 1rem 1rem 0;
-        	&:nth-child(3n) {
-	        	 margin: 0 0 1rem 0;
-	        	
-        	}
-		    }
-	    }
+
+        &:nth-child(3n) {
+          margin: 0 0 1rem 0;
+        }
+      }
+    }
+  }
 }
-
-
-
 
 /* -- Second Break-Point at 80rem - DESKTOP VIEWPORT-- */
 @media screen and (min-width: 80rem) {
-    
-    .grid_container {
-        width: 75%;
-        margin: 0 auto
-        ul {
-	        &:after {
-		       content: "";
+  .grid-container {
+    width: 75%;
+    margin: 0 auto;
+
+    ul {
+      &:after {
+        content: "";
         display: block;
-        clear: left; 
-	        }
-        }
-        
-        li {
-	         width: calc(25% - 0.75rem);
+        clear: left;
+      }
+
+      li {
+        width: calc(25% - 0.75rem);
         float: left;
         margin: 0 1rem 1rem 0;
+
         &:nth-child(4n) {
-	        margin: 0 0 1rem 0;
+          margin: 0 0 1rem 0;
         }
-        }
+      }
     }
-    
+  }
 }
