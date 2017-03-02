@@ -1,4 +1,5 @@
 <?php // Include data. ?>
+<?php include("./includes/list-of-products.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +16,7 @@
                     <h1>LOGO</h1>
                 </div>
             </div>
-            <div class="nav-bg">   
+            <div class="nav-bg">
                 <nav>
                     <div class="content-box">
                         <ul class="navbar clearfix">
@@ -32,43 +33,82 @@
                 <div class="content-box">
                     <h1>Creamy Cupcakes</h1>
                 </div>
-            </div> 
+            </div>
         </header>
         <main>
             <div class="main-content-bg">
                 <div class="content-box">
                     <?php
-                    /* Start looping through the products array */
-                    
-                       /* Check if product id from query string matches 
+
+$error = "Go Pick Something";
+if (!isset($_GET["id"])) { //has a value been passed via the URL?
+	print $error; //something needs to be done if the user somehow ends up on datails.php without an ID being passed
+} else {
+	for ($i=0; $i < sizeof($products); $i += 1) {
+
+		$matchProductId = $i + 1; //since indexing begins at 0, and product ID begins at 1, I need to make the numbers match
+		$thisProduct = ($_GET["id"]); //Identify what product ID has been passed via $_GET
+
+		//Variables to make HTML easier
+		$id = $products[$i]["id"];
+		$image = $products[$i]["image"];
+		$type =  $products[$i]["type"];
+		$name = $products[$i]["name"];
+		$price = $products[$i]["price"];
+		$description = $products[$i]["description"];
+
+		if ($thisProduct == $matchProductId) {
+			print "$id<br>";
+			print "$image<br>";
+			print "$type<br>";
+			print "$name<br>";
+			print "$price<br>";
+			print "$description<br>";
+
+			print "<a href=\"./details.php?id=$id\">Go to $name details</a>";
+
+			print "<br><hr><br>";
+		}
+
+
+
+	}
+
+
+
+}
+
+/* Start looping through the products array */
+
+/* Check if product id from query string matches
                           product id from products array. */
-                    
-                          /* Print the parsed data in following HTML structure:
-                          
+
+/* Print the parsed data in following HTML structure:
+
                              <h2>{product name}</h2>
-                             
+
                              <figure>
-                             
+
                                 <img src="{./path/to/image}" alt="{description of image}">
-                                
+
                                 <figcaption>
-                                
+
                                    <ul>
-                                   
+
                                       <li><p>{description of product}</p></li>
-                                      
+
                                       <li><p>{product price/piece}</p></li>
-                                      
+
                                    <ul>
-                                   
+
                                 </figcaption>
-                                
+
                              </figure> */
-                    
-                       /* End if */
-                    
-                    /* End loop */
-                    ?>
+
+/* End if */
+
+/* End loop */
+?>
                 </div>
             </div>
         </main>

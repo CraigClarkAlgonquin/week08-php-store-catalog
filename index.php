@@ -1,4 +1,5 @@
-<?php // Include data. ?>
+
+<?php include("./includes/list-of-products.php"); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +16,7 @@
                     <h1>LOGO</h1>
                 </div>
             </div>
-            <div class="nav-bg">   
+            <div class="nav-bg">
                 <nav>
                     <div class="content-box">
                         <ul class="navbar clearfix">
@@ -32,17 +33,17 @@
                 <div class="content-box">
                     <h1>Creamy Cupcakes</h1>
                 </div>
-            </div> 
+            </div>
         </header>
         <main>
             <div class="main-content-bg">
                 <div class="content-box clearfix">
                     <h2>The Product List</h2>
-                    
+
                     <!--
-	                    
+
 	                    COPIED FOR GRID
-	                    
+
 	                    <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +53,7 @@
     <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
-    <div class="grid_container">
+    <div class="grid-container">
         <ul>
             <li><img src="http://placehold.it/400/400/" alt="abstract"></li>
             <li><img src="http://placehold.it/400/400/" alt="animals"></li>
@@ -74,44 +75,70 @@
 -->
                     <ul class="store">
                     <?php
-                    /* Start looping through the products array */
-                   // cc use a for loop
-                        
-                       /* Inside each loop iteration, you are going to print:
-                       
+/* Start looping through the products array */
+// cc use a for loop
+
+for ($i=0; $i < sizeof($products); $i += 1) { //increment through the loop
+
+	//set variables. This isn't necessary, but will be easier to work with in the html
+	$id = $products[$i]["id"];
+	$image = $products[$i]["image"];
+	$type =  $products[$i]["type"];
+	$name = $products[$i]["name"];
+	$price = $products[$i]["price"];
+	$description = $products[$i]["description"];
+
+
+
+	print "$id<br>";
+	print "$image<br>";
+	print "$type<br>";
+	print "$name<br>";
+	print "$price<br>";
+	print "$description<br>";
+
+	print "<a href=\"./details.php?id=$id\">Go to $name details</a>";
+
+	print "<br><hr><br>";
+
+
+
+}
+/* Inside each loop iteration, you are going to print:
+
                           <li>
-                          
+
                              <figure>
-                             
+
                                 <a href="{links to details page ... send product id to details page}">
-                                   
+
                                    <img src="{./path/to/image}" alt="{description of image}">
-                                   
+
                                 </a>
-                                
+
                                 <figcaption>
-                                
+
                                    <ul>
-                                   
+
                                       <li>
-                                      
+
                                          <p>
                                             <a href="{links to details page ... send product id to details page}">{product name}</a><br>
                                             price: {product-price/piece}
                                          </p>
-                                         
+
                                       </li>
-                                      
+
                                    <ul>
-                                   
+
                                 </figcaption>
-                                
+
                              </figure>
-                             
+
                           </li> */
-                        
-                    /* End loop */
-                    ?>
+
+/* End loop */
+?>
                     </ul>
                 </div>
             </div>

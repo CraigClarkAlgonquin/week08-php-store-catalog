@@ -1,4 +1,6 @@
 <?php
+	
+
 $products = [
     [
      "id" => "1", 
@@ -49,4 +51,5 @@ $products = [
      "description" => "A beautifully flavored, citrus-infused New York cheesecake with a graham cracker crust."
     ]
 ];
+
 ?>
